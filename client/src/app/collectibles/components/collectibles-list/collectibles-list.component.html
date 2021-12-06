@@ -1,0 +1,99 @@
+<div class="container">
+	<div
+		class="jumbotron text-center bg-transparent animate__animated animate__fadeIn"
+	>
+		<h1 class="mb-3 text-white">Collectibles</h1>
+		<p class="lead mb-4 fs-18 text-white">Select an appropriate collectible</p>
+		<div>
+			<a
+				routerLink="/omnifan-add"
+				class="button button-lg button-link button-blue"
+				>Create New Collectible</a
+			>
+		</div>
+	</div>
+
+	<div class="row pb-5">
+		<div class="col-md-4" *ngFor="let collectible of collectibles$ | async">
+			<div
+				class="card shadow-sm border-0 mb-4 bg-light animate__animated animate__zoomIn"
+			>
+				<div class="card-img position-relative">
+					<!-- <img
+						class="bd-placeholder-img card-img-top"
+						width="100%"
+						height="175"
+						src="../../../../assets/images/regester-owner-image.jpg"
+					/> -->
+					<img
+						class="bd-placeholder-img card-img-top"
+						width="100%"
+						height="175"
+						[src]="rootUrl + '/' + collectible?.profile_photos[0]"
+						*ngIf="collectible?.profile_photos[0]"
+					/>
+					<div class="image-overlay border-radius-top"></div>
+					<span class="create-time fs-12">{{
+						collectible?.created_on | amTimeAgo
+					}}</span>
+				</div>
+				<div class="card-body">
+					<div class="d-flex justify-content-between border-bottom mb-3 pb-2">
+						<span class="d-inline-block text-black-2">
+							{{ collectible.title }}
+						</span>
+						<span class="d-inline-block text-black-2">
+							<!-- $10 -->
+							{{ collectible.price }}
+						</span>
+					</div>
+
+					<div class="d-flex justify-content-between mb-3">
+						<div class="text-black-2">
+							Price Type:
+							<span class="d-inline-block text-gray">
+								{{ collectible.priceType }}
+								<!-- Fixed Price -->
+							</span>
+						</div>
+						<div class="text-black-2">
+							Type:
+							<span class="d-inline-block text-gray">
+								{{ collectible.type }}
+
+								<!-- Multiple -->
+							</span>
+						</div>
+					</div>
+
+					<div class="text-black-2">
+						<span class="d-inline-block mb-1">Description: </span>
+						<span class="d-inline-block text-gray">
+							{{ collectible.description }}
+							<!-- Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed,
+							neque? -->
+						</span>
+					</div>
+
+					<div class="btn-group">
+						<!-- <button
+							type="button"
+							class="button button-sm button-light-green"
+							(click)="viewCollectibleDetails(collectible._id)"
+						>
+							View
+						</button> -->
+						<button
+							*ngIf="isOwner"
+							type="button"
+							class="button button-sm button-pink"
+							[routerLink]="['/create-edit-collectible', collectible._id]"
+						>
+							Edit
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

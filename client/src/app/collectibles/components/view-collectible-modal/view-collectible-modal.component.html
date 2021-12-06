@@ -1,0 +1,58 @@
+<div
+	*ngIf="collectible$ | async as collectible; else loading"
+	class="modal-container"
+>
+	<div class="modal-header">
+		<h4 class="modal-title">{{ collectible.name }}</h4>
+		<button
+			type="button"
+			class="close"
+			aria-label="Close"
+			(click)="activeModal.dismiss('Cross click')"
+		>
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div>
+			<span *ngFor="let img of profilePhotoImages; let i = index">
+				<img height="100" [src]="img.src" />
+			</span>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				
+				<h6>Title</h6>
+				<p>
+					{{ collectible.title }}
+				</p>
+				<h6>Price</h6>
+				<p>
+					{{ collectible.price }}
+				</p>
+				<h6>Price Type</h6>
+				<p>
+					{{ collectible.priceType }}
+				</p>
+				<h6>Type</h6>
+				<p>
+					{{ collectible.type }}
+				</p>
+				<h6>Description</h6>
+				<p>
+					{{ collectible.description }}
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<ng-template #loading>
+	<div class="modal-header">
+		<h4 class="modal-title">Loading Collectible...</h4>
+	</div>
+	<div class="modal-body">
+		<div class="spinner-border" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+</ng-template>

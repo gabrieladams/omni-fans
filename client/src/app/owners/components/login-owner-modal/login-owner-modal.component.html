@@ -1,0 +1,70 @@
+<!-- <div class="modal"> -->
+<div class="modal-header">
+  <button
+    type="button"
+    class="close text-white-85 text-white-85-hover"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body text-center">
+  <form (ngSubmit)="loginIdentifierPassword(form)" #form="ngForm" class="form">
+    <h5 class="mb-5 text-white">Please Sign In</h5>
+
+    <div class="form-control-container">
+      <input
+        type="email"
+        id="identifier"
+        name="identifier"
+        class="form-control"
+        required
+        autofocus
+        ngModel
+      />
+      <label for="identifier">Email address</label>
+    </div>
+
+    <div class="form-control-container">
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        required
+        ngModel
+      />
+      <label for="password">Password</label>
+    </div>
+
+    <div class="checkbox mb-4 text-white-85">
+      <input type="checkbox" value="remember-me" />
+      <span class="d-inline-block pl-2">Remember me</span>
+    </div>
+
+    <button
+      class="button button-lg btn-block button-blue mb-3"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Sign In
+    </button>
+
+    <button
+      class="button button-lg btn-block button-orange mb-5"
+      type="button"
+      (click)="loginWithMetamask()"
+    >
+      Login With Metamask
+    </button>
+
+    <a
+      type="button"
+      class="fs-13 font-weight-bold text-white-85 text-white-85-hover"
+      (click)="registerOwner()"
+      >New Owner? Sign Up to OmniFans</a
+    >
+  </form>
+</div>
+<!-- </div> -->

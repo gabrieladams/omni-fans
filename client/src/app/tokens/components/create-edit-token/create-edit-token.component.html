@@ -1,0 +1,165 @@
+<div class="container space-y">
+	<div class="row justify-content-center">
+		<div class="col-lg-11">
+			<div
+				class="box-shadow rounded p-2 p-md-4 bg-light animate__animated animate__fadeIn"
+			>
+				<div class="p-2 px-md-4 py-md-2">
+					<div class="link-container mb-4">
+						<div class="d-inline-block">
+							<i class="bi bi-arrow-left d-inline-block text-gray"></i>
+							<a
+								routerLink="/tokens-list"
+								class="link d-inline-block ml-2 mb-1 fs-12 text-decoration-none"
+								>Tokens list</a
+							>
+						</div>
+					</div>
+					<form (ngSubmit)="createUpdate(form)" #form="ngForm">
+						<h4 class="mb-4 text-black">
+							{{ token?._id ? 'Update' : 'Create' }} Token
+						</h4>
+
+						<div class="row mb-3">
+							<!-- section left start -->
+							<div class="col-lg-9 border-right-1">
+								<div class="row">
+									<!-- name -->
+									<div class="col-lg-6">
+										<div class="form-control-container">
+											<label for="name">Name</label>
+											<input
+												type="text"
+												id="name"
+												name="name"
+												class="form-control"
+												required
+												autofocus
+												[(ngModel)]="token.name"
+											/>
+										</div>
+									</div>
+
+									<!-- symbol -->
+									<div class="col-lg-6">
+										<div class="form-control-container">
+											<label for="symbol">Symbol</label>
+											<input
+												type="text"
+												id="symbol"
+												name="symbol"
+												class="form-control"
+												required
+												autofocus
+												[(ngModel)]="token.symbol"
+											/>
+										</div>
+									</div>
+								</div>
+
+								<!-- description -->
+								<div class="form-control-container">
+									<label for="description"> Description </label>
+									<textarea
+										id="description"
+										name="description"
+										rows="4"
+										class="form-control"
+										required
+										[(ngModel)]="token.description"
+									>
+									</textarea>
+								</div>
+
+								<div class="row">
+									<!-- issue price -->
+									<div class="col-lg-6">
+										<div class="form-control-container">
+											<label for="issue_price">Issue Price</label>
+											<input
+												type="number"
+												id="issue_price"
+												name="issue_price"
+												class="form-control"
+												required
+												[(ngModel)]="token.issue_price"
+												parent="true"
+											/>
+										</div>
+									</div>
+
+									<!-- total tokens -->
+									<div class="col-lg-6 mb-2 mb-lg-0">
+										<div class="form-control-container">
+											<label for="total">Total Tokens</label>
+											<input
+												type="number"
+												id="total"
+												name="total"
+												class="form-control"
+												required
+												[(ngModel)]="token.total"
+												parent="true"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- section left end -->
+
+							<!-- section right start -->
+							<div class="col-lg-3">
+								<div class="row">
+									<div class="col-md-6 col-lg-12">
+										<div
+											class="token-photo-upload text-center mb-0 mb-lg-4 p-4 rounded bg-gray"
+										>
+											<label for="photo" class="mb-0" style="cursor: pointer">
+												<span class="d-block mb-3 fs-12 text-gray"
+													>jpg, jpeg, png</span
+												>
+												<label for="photo" class="mb-0" style="cursor: pointer">
+													<button class="button button-sm button-pink">
+														Upload Token Photo
+													</button>
+												</label>
+											</label>
+
+											<input
+												type="file"
+												name="multiple"
+												id="photo"
+												class="form-control d-none"
+												ng2FileSelect
+												multiple
+												[uploader]="profilePhotoUploader"
+											/>
+										</div>
+									</div>
+									<div class="col-md-6 col-lg-12">
+										<div class="photo">
+											<img
+												src="../../../../assets/images/login-owner-form-card-image.jpg"
+												height="120"
+												class="rounded w-100"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- section right end -->
+						</div>
+
+						<button
+							class="button button-lg button-blue"
+							type="submit"
+							[disabled]="form.invalid"
+						>
+							{{ token?._id ? 'Update' : 'Create' }} Token
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

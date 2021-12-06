@@ -1,0 +1,377 @@
+<div class="container space-y">
+	<div class="row justify-content-center">
+		<div class="col-md-11">
+			<div
+				class="box-shadow rounded p-2 p-md-4 bg-light animate__animated animate__fadeIn"
+			>
+				<div class="px-4 py-2">
+					<div class="link-container mb-4">
+						<div class="d-inline-block">
+							<i class="bi bi-arrow-left d-inline-block text-gray"></i>
+							<a
+								routerLink="/omnifan-add"
+								class="link d-inline-block ml-2 mb-1 fs-12 text-decoration-none"
+								>Manage collectible types</a
+							>
+						</div>
+					</div>
+
+					<form (ngSubmit)="createUpdate(form)" #form="ngForm">
+						<h4 class="mb-3 text-black">
+							{{ collectible?._id ? 'Update' : 'Create' }} Collectible ({{
+								type | titlecase
+							}})
+						</h4>
+
+						<div class="row mb-3">
+							<!-- section left start -->
+							<div class="col-lg-7 order-2 order-lg-1 border-right-1">
+								<!-- put on marketplace -->
+								<div
+									class="form-control-container d-flex justify-content-between mb-3"
+								>
+									<div>
+										<span class="d-block mb-1">Put On MarketPlace</span>
+										<small class="d-block text-gray">
+											Enter collectible price to allow fans to instantly
+											purchase collectible
+										</small>
+									</div>
+									<input
+										class="form-control w-auto"
+										type="checkbox"
+										[(ngModel)]="collectible.putOnMarketPlace"
+										id="putOnMarketPlace"
+										[ngModelOptions]="{ standalone: true }"
+									/>
+									<!-- <label class="form-check-label" for="putOnMarketPlace">
+									<br />
+									<small
+										>Enter collectible price to allow fans to instantly purchase
+										collectible</small
+									>
+								</label> -->
+								</div>
+
+								<!-- row 2 start -->
+								<div>
+									<small class="d-block fs-12 text-gray mb-2">Select one</small>
+									<div class="row">
+										<!-- fixed price -->
+										<div class="col-md-4">
+											<div class="form-control-container">
+												<label
+													class="square d-block rounded p-3 text-center"
+													for="fixedPrice"
+												>
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														width="25"
+														height="25"
+														fill="currentColor"
+														class="bi bi-tag-fill icon mb-1"
+														viewBox="0 0 16 16"
+													>
+														<path
+															d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+														/>
+													</svg>
+													<span class="d-block fs-13"> Fixed Price </span>
+												</label>
+												<input
+													class="form-control"
+													type="radio"
+													name="priceType"
+													[(ngModel)]="collectible.priceType"
+													id="fixedPrice"
+													value="Fixed Price"
+													checked
+												/>
+											</div>
+										</div>
+
+										<!-- timed auction -->
+										<div class="col-md-4">
+											<div class="form-control-container">
+												<label
+													class="square d-block rounded p-3 text-center"
+													for="timedAuction"
+												>
+													<div class="">
+														<svg
+															xmlns="http://www.w3.org/2000/svg"
+															width="25"
+															height="25"
+															fill="currentColor"
+															class="bi bi-tag-fill mb-1"
+															viewBox="0 0 16 16"
+														>
+															<path
+																d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+															/>
+														</svg>
+														<span class="d-block fs-13 text-black-2">
+															Timed Auction
+														</span>
+													</div>
+												</label>
+												<input
+													class="form-control"
+													type="radio"
+													type="radio"
+													name="priceType"
+													[(ngModel)]="collectible.priceType"
+													id="timedAuction"
+													value="Timed Auction"
+												/>
+											</div>
+										</div>
+
+										<!-- timed auction -->
+										<div class="col-md-4">
+											<div class="form-control-container square-container">
+												<label
+													for="unlimitedAuction"
+													class="d-block square rounded p-3 text-center"
+												>
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														width="25"
+														height="25"
+														fill="currentColor"
+														class="bi bi-tag-fill mb-1"
+														viewBox="0 0 16 16"
+													>
+														<path
+															d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"
+														/>
+													</svg>
+													<span class="d-block fs-13 text-black-2">
+														Unlimited Auction
+													</span>
+												</label>
+												<input
+													class="form-control"
+													type="radio"
+													name="priceType"
+													[(ngModel)]="collectible.priceType"
+													id="unlimitedAuction"
+													value="Unlimited Auction"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- unlock once Purchased -->
+								<div
+									class="form-control-container d-flex justify-content-between mb-3"
+								>
+									<label class="form-check-label" for="unlockOncePurchased">
+										Unlock Once Purchased
+										<br />
+										<small class="text-gray"
+											>Content will be unlocked once fan purchases</small
+										>
+									</label>
+									<input
+										class="form-control w-auto"
+										type="checkbox"
+										[(ngModel)]="collectible.unlockOncePurchased"
+										id="unlockOncePurchased"
+										[ngModelOptions]="{ standalone: true }"
+									/>
+								</div>
+
+								<!-- collectible photo upload -->
+								<div class="row">
+									<div class="col-md-6 col-lg-8">
+										<div
+											class="photo-upload text-center mb-4 mb-md-0 p-4 rounded bg-gray"
+										>
+											<span class="d-block mb-3 fs-12 text-gray"
+												>jpg, jpeg, png</span
+											>
+											<label for="photo" class="mb-0" style="cursor: pointer">
+												<button class="button button-sm button-pink">
+													Upload Collectible Photo
+												</button>
+											</label>
+
+											<input
+												type="file"
+												name="multiple"
+												id="photo"
+												class="form-control d-none"
+												ng2FileSelect
+												multiple
+												[uploader]="profilePhotoUploader"
+											/>
+										</div>
+									</div>
+									<div class="col-md-6 col-lg-4">
+										<div class="photo mb-4">
+											<img
+												src="../../../../assets/images/login-owner-form-card-image.jpg"
+												height="120"
+												class="rounded w-100"
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- section left end -->
+
+							<!-- section right start -->
+							<div
+								class="overflow col-lg-5 order-1 order-lg-2 mb-3 mb-lg-0 pb-3"
+							>
+								<!-- Title -->
+								<div class="form-control-container">
+									<label for="name">Title</label>
+									<input
+										type="text"
+										id="title"
+										name="title"
+										placeholder="Enter collectible title"
+										class="form-control"
+										required
+										[(ngModel)]="collectible.title"
+									/>
+								</div>
+
+								<!-- price -->
+								<div class="form-control-container">
+									<label for="name">Price</label>
+									<input
+										type="text"
+										id="price"
+										name="price"
+										placeholder="Enter collectible price"
+										class="form-control mb-2"
+										required
+										[(ngModel)]="collectible.price"
+									/>
+									<small class="d-block fs-12 text-gray"
+										>Service Fee 2.5%</small
+									>
+								</div>
+
+								<!-- Description -->
+								<div class="form-control-container">
+									<label for="description"> Description </label>
+									<textarea
+										id="description"
+										name="description"
+										placeholder="Enter collectible description"
+										rows="3"
+										class="form-control"
+										required
+										[(ngModel)]="collectible.description"
+									>
+									</textarea>
+								</div>
+								<div>
+									<span class="d-block mb-3"
+										>Add Extra Properties
+										<br />
+										<small class="text-gray">Scroll to add property</small>
+									</span>
+
+									<ng-template
+										ngFor
+										let-extra
+										[ngForOf]="extraPropertyFields?.formFields"
+										let-index="index"
+										let-isLast="last"
+									>
+										<div
+											class="extra-prop-box position-relative d-block d-lg-flex rounded mb-3 p-2"
+										>
+											<!-- Property Name -->
+											<div class="form-control-container flex-grow-1">
+												<label for="name_{{ index }}">Property Name</label>
+												<input
+													type="extra.name.type"
+													id="name_{{ index }}"
+													name="name_{{ index }}"
+													[(ngModel)]="collectible.extraProperties[index].name"
+													class="form-control"
+													required
+												/>
+											</div>
+											<!-- Property Value -->
+											<div
+												class="form-control-container flex-grow-1 ml-0 ml-lg-3"
+											>
+												<label for="value_{{ index }}">Property Value</label>
+												<input
+													type="extra.value.type"
+													id="value_{{ index }}"
+													name="value_{{ index }}"
+													[(ngModel)]="collectible.extraProperties[index].value"
+													class="form-control"
+													required
+												/>
+											</div>
+											<button
+												(click)="removeExtraProperty(index)"
+												class="button button-sm button-blue p-0"
+											>
+												x
+											</button>
+										</div>
+									</ng-template>
+									<button
+										(click)="addExtraProperty()"
+										class="button button-sm button-pink"
+									>
+										Add Extra Field
+									</button>
+								</div>
+
+								<!-- <div class="form-control-container">
+								<label for="description"> Service Fee 2.5% </label>
+								<label for="description"> You will recieve 0.00 ETH </label>
+							</div> -->
+							</div>
+						</div>
+
+						<!-- <table class="table">
+						<tbody>
+							<tr *ngFor="let item of profilePhotoUploader.queue">
+								<td></td>
+								<td class="text-center">
+									<i class="check-all" *ngIf="item.isSuccess"></i>
+									<i class="x-square" *ngIf="item.isCancel"></i>
+									<i class="stop" *ngIf="item.isError"></i>
+								</td>
+							</tr>
+						</tbody>
+					</table> -->
+
+						<!-- <div>
+						<div class="mt-8 mb-3" gallerize="front">
+							<span *ngFor="let img of profilePhotoImages; let i = index">
+								<img height="100" [src]="img.src" />
+								<i
+									class="x-circle"
+									(click)="deleteImage('profile_photos', i)"
+								></i>
+							</span>
+						</div>
+					</div> -->
+
+						<button
+							class="button button-lg button-blue mt-8"
+							type="submit"
+							[disabled]="form.invalid"
+						>
+							{{ collectible?._id ? 'Update' : 'Create' }} Collectible
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

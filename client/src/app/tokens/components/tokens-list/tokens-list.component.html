@@ -1,0 +1,108 @@
+<div class="container">
+	<div
+		class="jumbotron text-center bg-transparent animate__animated animate__fadeIn"
+	>
+		<div class="container">
+			<h1 class="mb-3 text-white">Tokens</h1>
+			<p class="lead mb-4 fs-18 text-white">Select an appropriate token</p>
+			<div>
+				<a
+					*ngIf="!ownerToken"
+					routerLink="/create-edit-token"
+					class="button button-lg button-link button-blue"
+					>Create New Token</a
+				>
+			</div>
+		</div>
+	</div>
+	<div class="row pb-5">
+		<div class="col-lg-4" *ngFor="let token of tokens$ | async">
+			<div
+				class="card shadow-sm border-0 mb-4 bg-light animate__animated animate__zoomIn"
+			>
+				<div class="card-img position-relative">
+					<!-- <img
+						class="bd-placeholder-img card-img-top"
+						width="100%"
+						height="175"
+						src="../../../../assets/images/regester-owner-image.jpg"
+					/> -->
+					<img
+						class="bd-placeholder-img card-img-top"
+						width="100%"
+						height="175"
+						[src]="rootUrl + '/' + token?.profile_photos[0]"
+						*ngIf="token?.profile_photos[0]"
+					/>
+					<div class="image-overlay border-radius-top"></div>
+					<span class="create-time">{{ token?.created_on | amTimeAgo }}</span>
+				</div>
+
+				<div class="card-body p-4">
+					<div class="d-flex justify-content-between border-bottom mb-3 pb-2">
+						<span class="d-inline-block text-black-2">
+							{{ token.name }}
+						</span>
+						<span class="d-inline-block text-black-2">
+							Symbol
+							<!-- {{ token.symbol }} -->
+						</span>
+					</div>
+
+					<div class="d-flex justify-content-between mb-3">
+						<div class="text-black-2">
+							Issue Price:
+							<span class="d-inline-block text-gray">
+								<!-- {{
+								token.issue_price
+							}} -->
+								$50
+							</span>
+						</div>
+						<div class="text-black-2">
+							Total:
+							<span class="d-inline-block text-gray">
+								<!-- {{ token.total }} -->
+								1,000,000
+							</span>
+						</div>
+					</div>
+
+					<div class="text-black-2">
+						<span class="d-inline-block mb-1">Description: </span>
+						<span class="d-inline-block text-gray">
+							<!-- {{ token.description }} -->
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed,
+							neque?
+						</span>
+					</div>
+
+					<div class="btn-group">
+						<!-- <button
+							type="button"
+							class="button button-sm button-light-green"
+							(click)="viewTokenDetails(token._id)"
+						>
+							View
+						</button> -->
+						<button
+							type="button"
+							class="button button-sm button-pink"
+							[routerLink]="['/create-edit-token', token._id]"
+							*ngIf="ownerToken?._id == token?._id"
+						>
+							Edit
+						</button>
+						<!-- <button
+							type="button"
+							class="button button-sm button-pink"
+							[routerLink]="['/collectibles-list', token.owner]"
+						>
+							Collectibles
+						</button> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

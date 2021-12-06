@@ -1,0 +1,75 @@
+.h-100vh {
+	height: 100vh;
+}
+
+// TEXT COLOR
+.text-black {
+	color: #000000 !important;
+}
+
+.text-black-2 {
+	color: #222222 !important;
+}
+
+.text-black-3 {
+	color: #333333 !important;
+}
+
+.text-gray {
+	color: #555555 !important;
+}
+
+// FONT SIZE
+.fs-12 {
+	font-size: 0.75rem !important;
+}
+
+.fs-13 {
+	font-size: 0.8125rem !important;
+}
+
+.fs-16 {
+	font-size: 1rem;
+}
+
+.fs-18 {
+	font-size: 1.125rem !important;
+}
+
+// BACKGROUND
+.bg-gray {
+	background-color: #f1f1f1;
+}
+
+.bg-light {
+	background-color: #f1f1f1;
+}
+
+.bg-light-2 {
+	background-color: #eaeaea;
+}
+
+.border-right {
+	border-right: 1px solid #fdfdfd;
+}
+
+.bg-image {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+// BOX SHADOW
+.box-shadow {
+	-webkit-box-shadow: 0px 5px 10px 0px rgba(85, 85, 85, 0.2);
+	box-shadow: 0px 5px 10px 0px rgba(85, 85, 85, 0.2);
+}
+
+.space-y {
+	padding-top: 3rem;
+	padding-bottom: 9rem;
+}
+
+.pb-144 {
+	padding-bottom: 9rem;
+}

@@ -1,0 +1,23 @@
+<div class="form-signin-container text-center">
+  <form (ngSubmit)="register(form)" #form="ngForm" class="form-signin">
+
+
+    <label>OmniFans</label>
+    <h1 class="h3 mb-3 font-weight-normal">Register with Metamask</h1>
+    <!-- <label for="ownername" class="sr-only">Ownername</label>
+    <input type="ownername" id="ownername" name="ownername" class="form-control" placeholder="Ownername address" required autofocus ngModel> -->
+    <label for="email" class="sr-only">Email address</label>
+    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required ngModel>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="form.invalid">Sign Up</button>
+
+
+
+    <hr/>
+
+
+  <button  class="btn btn-lg btn-info btn-block">Register Using Email and Password</button>
+
+<a type="button" routerLink="/login-owner">Existing Owner? Login to OmniFans</a>
+</form>
+</div>

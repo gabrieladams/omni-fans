@@ -1,0 +1,66 @@
+<div class="container space-y">
+	<div class="row justify-content-center">
+		<div class="col-md-9 col-lg-6">
+			<div
+				class="box-shadow rounded p-2 p-md-4 bg-light animate__animated animate__fadeIn"
+			>
+				<div class="px-4 py-2">
+					<div class="link-container d-inline-block mb-4">
+						<i class="bi bi-arrow-left d-inline-block text-gray"></i>
+						<a
+							routerLink="/collectibles-list"
+							class="link d-inline-block ml-2 fs-12 text-decoration-none"
+							>Collectible list</a
+						>
+					</div>
+					<h4 class="text-black mb-3">OmniCollectible - Add Tokens</h4>
+					<p class="text-gray">
+						Choose "single" if you want your collectible to be one of a kind or
+						"multiple" if you want to sell one collectible multiple times
+					</p>
+					<div>
+						<button
+							class="button button-lg button-light-green mb-3"
+							[routerLink]="['/create-edit-collectible']"
+							[queryParams]="{ type: 'single' }"
+						>
+							Single
+						</button>
+						<button
+							class="button button-lg button-pink ml-4 mb-3"
+							[routerLink]="['/create-edit-collectible']"
+							[queryParams]="{ type: 'multiple' }"
+						>
+							Multiple
+						</button>
+					</div>
+
+					<p class="text-gray mb-0">
+						We do not own your private keys and cannot access your funds without
+						your confirmation
+					</p>
+
+					<!-- <button
+      *ngIf="!isWeb3Initialized"
+      class="btn btn-lg btn-info btn-block"
+      type="button"
+      (click)="connectWallet()"
+    >
+      Connect Wallet
+    </button>
+    <button
+      *ngIf="isWeb3Initialized"
+      class="btn btn-lg btn-info btn-block"
+      type="button"
+    >
+      Connected Account
+      <br />
+      <small>{{ ownerAccountBalance?.account }}</small>
+      <br />
+      <small>{{ ownerAccountBalance?.balance }} ETH</small>
+    </button> -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

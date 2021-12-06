@@ -1,0 +1,155 @@
+<div class="container space-y">
+	<div class="row justify-content-center">
+		<div class="col-lg-11">
+			<div
+				class="box-shadow rounded bg-light animate__animated animate__fadeIn"
+			>
+				<div class="image-container position-relative">
+					<div class="bg-image border-radius-top h-100"></div>
+					<div class="image-overlay border-radius-top"></div>
+				</div>
+				<div class="p-4">
+					<form
+						(ngSubmit)="register(form)"
+						#form="ngForm"
+						class="p-2 px-md-4 py-md-2"
+					>
+						<h4 class="mb-4 text-black">Create OmniFan Token</h4>
+
+						<div class="row mb-4">
+							<!-- section left -->
+							<div class="col-lg-9 border-right-1">
+								<!-- name & email -->
+								<div class="row">
+									<div class="col-lg-6">
+										<div class="form-control-container">
+											<label for="name">Name</label>
+											<input
+												type="text"
+												id="name"
+												name="name"
+												class="form-control"
+												required
+												autofocus
+												ngModel
+												parent="true"
+											/>
+										</div>
+									</div>
+
+									<div class="col-lg-6">
+										<div class="form-control-container">
+											<label for="email">Email address</label>
+											<input
+												type="email"
+												id="email"
+												name="email"
+												class="form-control"
+												required
+												ngModel
+											/>
+										</div>
+									</div>
+								</div>
+
+								<!-- bio -->
+								<div class="form-control-container">
+									<label for="bio">Bio</label>
+									<textarea
+										id="bio"
+										name="bio"
+										rows="4"
+										class="form-control"
+										required
+										ngModel
+									>
+									</textarea>
+								</div>
+
+								<!-- password -->
+								<div class="form-control-container">
+									<label for="password">Password</label>
+									<input
+										type="password"
+										id="password"
+										name="password"
+										class="form-control"
+										required
+										ngModel
+										parent="true"
+									/>
+								</div>
+							</div>
+
+							<!-- section right -->
+							<div class="col-lg-3">
+								<!-- token name -->
+								<div class="form-control-container">
+									<label for="token_name">Token Name</label>
+									<input
+										type="text"
+										id="token_name"
+										name="token_name"
+										class="form-control"
+										required
+										ngModel
+										parent="true"
+									/>
+								</div>
+
+								<!-- token price -->
+								<div class="form-control-container">
+									<label for="issue_price">Token Price</label>
+									<input
+										type="number"
+										id="issue_price"
+										name="issue_price"
+										class="form-control"
+										required
+										ngModel
+										parent="true"
+									/>
+								</div>
+
+								<!-- total tokens -->
+								<div class="form-control-container">
+									<label for="total_tokens">Total Tokens</label>
+									<input
+										type="number"
+										id="total_tokens"
+										name="total_tokens"
+										class="form-control"
+										required
+										ngModel
+										parent="true"
+									/>
+								</div>
+							</div>
+							<!-- section left end -->
+						</div>
+
+						<div>
+							<button
+								class="button button-lg button-blue mb-4"
+								type="submit"
+								[disabled]="form.invalid"
+							>
+								Create OmniFan Token
+							</button>
+						</div>
+
+						<a type="button" class="fs-13 text-gray" routerLink="/login-owner"
+							>Existing Owner? Login to OmniFans</a
+						>
+
+						<!--  <a
+      class="button button-lg btn-block button-orange mb-5 text-decoration-none text-white"
+      routerLink="/register-owner-metamask"
+      >Register Using Metamask</a
+    > -->
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

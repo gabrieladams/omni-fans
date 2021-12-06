@@ -1,0 +1,63 @@
+<div class="modal-header">
+  <h4 class="modal-title">OmniFans Sign UP</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="form-signin-container text-center">
+    <form (ngSubmit)="register(form)" #form="ngForm" class="form-signin">
+      <label>OmniFans</label>
+      <h1 class="h3 mb-3 font-weight-normal">Register</h1>
+
+      <label for="email" class="sr-only">Email address</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        class="form-control"
+        placeholder="Email address"
+        required
+        ngModel
+      />
+      <label for="password" class="sr-only">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        class="form-control"
+        placeholder="Password"
+        required
+        ngModel
+        compare-password="password"
+        parent="true"
+      />
+      <button
+        class="btn btn-lg btn-primary btn-block"
+        type="submit"
+        [disabled]="form.invalid"
+      >
+        Sign Up
+      </button>
+
+      <div></div>
+
+      <hr />
+
+      <a
+        class="btn btn-lg btn-info btn-block"
+        routerLink="/register-owner-metamask"
+        >Register Using Metamask</a
+      >
+
+      <a type="button" routerLink="/login-owner"
+        >Existing Owner? Login to OmniFans</a
+      >
+    </form>
+  </div>
+</div>

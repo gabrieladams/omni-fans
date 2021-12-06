@@ -1,0 +1,24 @@
+.omnicollectible-card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  .omnicollectible-card {
+    background-color: #0b121c;
+
+    .add-to-collectible-btn,
+    .borrow-from-collectible-btn {
+      background-color: #131e2d;
+      //   background-color: #0f3a75;
+
+      &:hover {
+      }
+    }
+
+    // .omnicollectible-card-btn {
+    //   background-color: #0f3a75;
+    // }
+  }
+}

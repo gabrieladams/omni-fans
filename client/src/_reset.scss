@@ -1,0 +1,31 @@
+body {
+	// height: 100vh;
+
+	font-size: 0.875rem;
+	font-family: 'Roboto', sans-serif;
+	color: #000;
+
+	background-color: #ffffff;
+	// background-color: #333;
+}
+
+a {
+	text-decoration: none;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+button:focus {
+	outline: none;
+}
+
+img {
+	object-fit: cover;
+}
+
+label {
+	color: #222;
+	margin-bottom: 8px;
+}

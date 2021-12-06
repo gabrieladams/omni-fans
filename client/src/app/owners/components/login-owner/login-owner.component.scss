@@ -1,0 +1,22 @@
+@import '../../../../variables';
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+}
+
+.border-radius-left {
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+// .mobile-height {
+// 	height: 200px;
+// }
+
+.bg-image {
+	background-image: url(../../../../assets/images/login-owner-form-card-image.jpg);
+}

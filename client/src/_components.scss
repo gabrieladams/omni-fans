@@ -1,0 +1,69 @@
+$color-dark-periwinkle-tint: #6977d3;
+$color-brass-tint: #b7bc52;
+$color-light-plum-tint: #a85fa1;
+$color-ruddy-brown-tint: #b6713d;
+
+.button {
+	display: inline-block;
+
+	border: none;
+	border-radius: 4px;
+
+	text-align: center;
+	color: #ffffff;
+}
+
+// BUTTON SIZE
+.button-sm {
+	padding: 0.5625rem 1.125rem;
+
+	font-size: 0.8125rem;
+}
+
+.button-lg {
+	padding: 1.125rem 2.25rem;
+}
+
+// BUTTON COLOR
+.button-blue {
+	background-color: $color-dark-periwinkle;
+	&:hover {
+		background-color: $color-dark-periwinkle-tint;
+	}
+}
+
+.button-light-green {
+	background-color: $color-brass;
+	&:hover {
+		background-color: $color-brass-tint;
+	}
+}
+
+.button-pink {
+	background-color: $color-light-plum;
+	&:hover {
+		background-color: $color-light-plum-tint;
+	}
+}
+
+.button-brown {
+	background-color: $color-ruddy-brown;
+	&:hover {
+		background-color: $color-ruddy-brown-tint;
+	}
+}
+
+// NAVBAR BUTTON
+.button.navbar-button {
+	background-color: #2172ff;
+	&:hover {
+		background-color: #3781ff;
+	}
+}
+
+// BUTTON LINK
+.button-link:hover,
+.button-link:active {
+	color: #fff;
+	text-decoration: none;
+}

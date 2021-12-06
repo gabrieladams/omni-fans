@@ -1,0 +1,25 @@
+<ng-template [ngIf]="home" [ngIfElse]="second">
+  <router-outlet></router-outlet>
+</ng-template>
+<ng-template #second>
+  <ng-template [ngIf]="isOwnerLoggedIn" [ngIfElse]="third">
+    <app-navbar
+      [ownerAccountBalance]="ownerAccountBalance"
+      [isOwnerLoggedIn]="isOwnerLoggedIn"
+      [loggedInOwner]="loggedInOwner"
+    ></app-navbar>
+
+    <router-outlet></router-outlet>
+  </ng-template>
+</ng-template>
+<ng-template #third>
+  <ng-template [ngIf]="!isOwnerLoggedIn">
+    <app-navbar
+      [ownerAccountBalance]="ownerAccountBalance"
+      [isOwnerLoggedIn]="isOwnerLoggedIn"
+      [loggedInOwner]="loggedInOwner"
+    ></app-navbar>
+    <router-outlet></router-outlet>
+  </ng-template>
+</ng-template>
+<app-toasts aria-live="polite" aria-atomic="true"></app-toasts>

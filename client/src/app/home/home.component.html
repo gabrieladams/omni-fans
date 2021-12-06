@@ -1,0 +1,169 @@
+<div class="home-page h-100vh">
+	<div class="container h-100">
+		<div class="row justify-content-center h-100">
+			<div class="col-lg-9">
+				<div class="d-flex flex-column justify-content-between h-100">
+					<nav
+						class="
+							navbar navbar-expand-md navbar-light
+							px-0
+							pt-3
+							animate__animated animate__fadeInDown
+						"
+					>
+						<a class="navbar-brand mr-4 fs-18 text-black" href="#">OmniFans</a>
+
+						<button
+							class="navbar-toggler"
+							type="button"
+							data-toggle="collapse"
+							data-target="#navbarNav"
+						>
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarNav">
+							<!-- <ul class="navbar-nav mt-3 mt-md-0 mr-auto">
+								<li class="nav-item py-1 py-md-0">
+									<a
+										class="nav-link"
+										routerLink="/lender-principals"
+										routerLinkActive="active"
+										>Lenders</a
+									>
+								</li>
+								<li class="nav-item py-1 py-md-0">
+									<a
+										class="nav-link"
+										routerLink="/borrowed-funds"
+										routerLinkActive="active"
+										>Borrowers</a
+									>
+								</li>
+								<li class="nav-item py-1 py-md-0">
+									<a
+										class="nav-link"
+										routerLink="/stake-balance"
+										routerLinkActive="active"
+										>OmniFans</a
+									>
+								</li>
+							</ul> -->
+							<ul class="navbar-nav mt-3 mt-md-0 ml-auto">
+								<li
+									class="nav-item mr-0 mr-md-4"
+									*ngIf="!(isOwnerLoggedIn$ | async)"
+								>
+									<a
+										class="
+											button
+											navbar-button
+											button-sm button-link
+											d-block d-md-inline-block
+											rounded-pill
+											mb-3 mb-md-0
+											text-decoration-none
+										"
+										routerLink="/login-owner"
+										routerLinkActive="active"
+										>Login</a
+									>
+								</li>
+								<li class="nav-item" *ngIf="!(isOwnerLoggedIn$ | async)">
+									<a
+										class="
+											button
+											navbar-button
+											button-sm button-link
+											d-block d-md-inline-block
+											rounded-pill
+											mb-4 mb-md-0
+											text-decoration-none
+										"
+										routerLink="/register-owner"
+										routerLinkActive="active"
+										>Register</a
+									>
+								</li>
+								<!--<li class="nav-item" *ngIf="isOwnerLoggedIn$ | async">-->
+								<!--	<a class="nav-link"-->
+								<!--		>Welcome, {{ (loggedInOwner$ | async).ownername }}</a-->
+								<!--	>-->
+								<!--</li>-->
+								<!--<li class="nav-item" *ngIf="isOwnerLoggedIn$ | async">-->
+								<!--	<a-->
+								<!--		class="nav-link"-->
+								<!--		routerLink="/owner-profile"-->
+								<!--		routerLinkActive="active"-->
+								<!--		>Profile</a-->
+								<!--	>-->
+								<!--</li>-->
+								<!--<li-->
+								<!--	class="nav-item"-->
+								<!--	*ngIf="isOwnerLoggedIn$ | async"-->
+								<!--	(click)="logout()"-->
+								<!-->-->
+								<!--	<a class="nav-link">Sign Out</a>-->
+								<!--</li>-->
+							</ul>
+						</div>
+					</nav>
+
+					<div class="row justify-content-center align-items-center">
+						<div
+							class="
+								col-lg-5
+								order-2 order-lg-1
+								text-center text-lg-left
+								animate__animated animate__fadeIn
+							"
+						>
+							<h2 class="text-black mb-3">OmniFans</h2>
+							<p class="lead text-black-2 mb-4 fs-16">
+								Welcome to OmniFan token, where fans pay to follow you.
+							</p>
+							<div>
+								<a
+									*ngIf="!(isOwnerLoggedIn$ | async)"
+									routerLink="/login-owner"
+									class="button button-lg button-blue button-link"
+									>Enter OmniFans</a
+								>
+								<a
+									*ngIf="isOwnerLoggedIn$ | async"
+									routerLink="/collectibles-list"
+									class="button button-lg button-blue button-link"
+									>View Your Collectibles</a
+								>
+							</div>
+						</div>
+						<div
+							class="
+								col-lg-6
+								offset-lg-1
+								d-flex
+								justify-content-center
+								order-1 order-lg-2
+								mb-4 mb-lg-0
+								animate__animated animate__fadeIn
+							"
+						>
+							<!-- <img
+								src="../../assets/images/home-image.png"
+								alt="fans"
+								class="img-fluid"
+							/> -->
+							
+						</div>
+					</div>
+
+					<footer
+						class="pb-3 text-center text-gray animate__animated animate__fadeIn"
+					>
+						OmniFans is an OmniFans project
+					</footer>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

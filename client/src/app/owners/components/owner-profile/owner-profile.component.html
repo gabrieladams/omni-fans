@@ -1,0 +1,300 @@
+<div class="container space-y">
+	<div class="row justify-content-center">
+		<div class="col-lg-11">
+			<div
+				class="box-shadow rounded p-4 bg-light min-height-650 animate__animated animate__fadeIn"
+			>
+				<div class="p-2 px-md-4 py-md-2">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a
+								href=""
+								data-target="#profile"
+								data-toggle="tab"
+								class="nav-link active px-4 py-3"
+								>Profile</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a
+								href=""
+								data-target="#edit"
+								data-toggle="tab"
+								class="nav-link px-4 py-3"
+								>Edit</a
+							>
+						</li>
+
+						<li class="nav-item">
+							<a
+								href=""
+								data-target="#verify"
+								data-toggle="tab"
+								class="nav-link px-4 py-3"
+								>Verify Account</a
+							>
+						</li>
+					</ul>
+					<div class="tab-content mt-2 pt-4">
+						<div
+							class="tab-pane active animate__animated animate__fadeIn"
+							id="profile"
+						>
+							<div class="row justify-content-center pt-5">
+								<div class="col-md-6 col-lg-5">
+									<div
+										class="position-relative box-shadow rounded p-5 bg-light"
+									>
+										<div class="pt-4">
+											<!-- name -->
+											<div class="mb-3">
+												<span class="d-inline-block text-black-2">Name:</span>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.first_name }} {{ owner.last_name }}
+												</span>
+											</div>
+
+											<!-- username -->
+											<div class="mb-3">
+												<span class="d-inline-block text-black-2"
+													>Username:</span
+												>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.ownername }}
+												</span>
+											</div>
+
+											<!-- email -->
+											<div class="mb-3">
+												<span class="d-inline-block text-black-2">Email:</span>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.email }}
+												</span>
+											</div>
+
+											<!-- company -->
+											<div class="mb-3">
+												<span class="d-inline-block text-black-2"
+													>Company:</span
+												>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.company }}
+												</span>
+											</div>
+
+											<!-- website -->
+											<div class="mb-3">
+												<span class="d-inline-block text-black-2"
+													>Website:</span
+												>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.website }}
+												</span>
+											</div>
+
+											<!-- address -->
+											<div>
+												<span class="d-inline-block text-black-2"
+													>Address:</span
+												>
+												<span class="d-inline-block ml-1 text-gray">
+													{{ owner.address }}
+												</span>
+											</div>
+										</div>
+										<div class="profile-picture">
+											<img
+												src="../../../../assets/images/login-owner-form-card-image.jpg"
+												width="100"
+												height="100"
+												class="rounded-circle"
+											/>
+										</div>
+
+										<!-- <h6 *ngIf="owner.company" class="text-black-2">Company</h6>
+							<p *ngIf="owner.company" class="text-gray">
+								{{ owner.company }}
+							</p> -->
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="tab-pane animate__animated animate__fadeIn" id="edit">
+							<form (ngSubmit)="updateProfile(form)" #form="ngForm">
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="row">
+											<div class="col-lg-8 border-right-1">
+												<div class="row">
+													<!-- first name -->
+													<div class="col-lg-6">
+														<div class="form-control-container">
+															<label for="first_name">First name</label>
+															<input
+																class="form-control"
+																type="text"
+																id="first_name"
+																name="first_name"
+																required
+																[(ngModel)]="owner.first_name"
+															/>
+														</div>
+													</div>
+
+													<!-- last name -->
+													<div class="col-lg-6">
+														<div class="form-control-container">
+															<label for="last_name">Last name</label>
+															<input
+																class="form-control"
+																type="text"
+																id="last_name"
+																name="last_name"
+																required
+																[(ngModel)]="owner.last_name"
+															/>
+														</div>
+													</div>
+												</div>
+
+												<!-- username -->
+												<div class="form-control-container">
+													<label for="ownername">Username</label>
+													<input
+														class="form-control"
+														type="text"
+														id="ownername"
+														name="ownername"
+														required
+														[(ngModel)]="owner.ownername"
+														placeholder="Ownername"
+													/>
+												</div>
+
+												<!-- email -->
+												<div class="form-control-container">
+													<label for="email">Email</label>
+													<input
+														class="form-control"
+														type="email"
+														id="email"
+														name="email"
+														required
+														[(ngModel)]="owner.email"
+													/>
+												</div>
+											</div>
+
+											<div class="col-lg-4">
+												<!-- company -->
+												<div class="form-control-container">
+													<label for="company">Company</label>
+													<input
+														class="form-control"
+														type="text"
+														id="company"
+														name="company"
+														required
+														[(ngModel)]="owner.company"
+													/>
+												</div>
+
+												<!-- website -->
+												<div class="form-control-container">
+													<label for="website">Website</label>
+													<input
+														class="form-control"
+														type="url"
+														id="website"
+														name="website"
+														required
+														[(ngModel)]="owner.website"
+													/>
+												</div>
+
+												<!-- address -->
+												<div class="form-control-container">
+													<label for="address">Address</label>
+													<input
+														class="form-control"
+														type="text"
+														id="address"
+														name="address"
+														required
+														[(ngModel)]="owner.address"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-lg-8">
+										<!-- update profile picture -->
+										<div class="row mb-4">
+											<div class="col-md-6 col-lg-8">
+												<div
+													class="photo-upload text-center mb-4 mb-md-0 p-4 rounded bg-gray"
+												>
+													<span class="d-block mb-3 fs-12 text-gray"
+														>jpg, jpeg, png</span
+													>
+													<label
+														for="profile_photo"
+														class="mb-0"
+														style="cursor: pointer"
+													>
+														<button class="button button-sm button-pink">
+															Upload Profile Photo
+														</button>
+													</label>
+
+													<input
+														type="file"
+														name="multiple"
+														id="profile_photo"
+														class="form-control d-none"
+														ng2FileSelect
+														multiple
+														[uploader]="profilePhotoUploader"
+													/>
+												</div>
+											</div>
+											<div class="col-md-6 col-lg-4">
+												<div class="photo mb-4">
+													<img
+														src="../../../../assets/images/login-owner-form-card-image.jpg"
+														height="120"
+														class="rounded w-100"
+													/>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<input
+									type="submit"
+									class="button button-lg button-blue"
+									value="Save Changes"
+								/>
+							</form>
+						</div>
+						<div class="tab-pane animate__animated animate__fadeIn" id="verify">
+							<div class="d-flex justify-content-center">
+								<button
+									class="button button-lg button-blue"
+									type="button"
+									(click)="verifyOwner()"
+								>
+									Verify
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<div>
+  <div>{{owners$|async|json}}</div>
+  <div class="table-responsive">
+    <table class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Operations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let owner of owners$ | async">
+          <td>{{ owner.name }}</td>
+          <td>{{ owner.description }}</td>
+          <td>
+            <button (click)="showUpdateForm(owner)" class="btn btn-primary" style="margin: 5px">Update</button>
+            <button (click)="deleteOwner(owner.id)" class="btn btn-danger" style="margin: 5px">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div *ngIf="isUpdateActivated" style="margin-top: 50px; margin-left: 50px;">
+    <h4>Update Owner</h4>
+    <form (ngSubmit)="updateOwner(updateForm)" #updateForm="ngForm">
+      <div class="form-group">
+        <label for="first_name">Owner Name</label>
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          class="form-control"
+          required
+          [(ngModel)]="ownerToBeUpdated.first_name"
+          style="width: 400px"/>
+      </div>
+      <div class="form-group">
+        <label for="side">Description</label>
+        <input
+          type="text"
+          id="description"
+          name="description"
+          class="form-control"
+          required
+          [(ngModel)]="ownerToBeUpdated.description"
+          style="width: 400px"/>
+      </div>
+      <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Update</button>
+    </form>
+  </div>
+</div>
